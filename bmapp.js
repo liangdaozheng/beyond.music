@@ -20,6 +20,16 @@ var uservip=require("./routes/uservip");
 var userpwd=require("./routes/userpwd");
 var search=require("./routes/search");
 var islove=require("./routes/islove");
+var share=require("./routes/share");
+var load=require("./routes/load");
+var listener=require("./routes/listener");
+var musicself=require("./routes/musicself");
+var joinself=require("./routes/joinself");
+var uploading=require("./routes/uploading");
+var partyload=require("./routes/partyload");
+var deletefocus=require("./routes/deletefocus");
+var goods=require("./routes/goods");
+var focus=require("./routes/focus");
 
 
 
@@ -78,6 +88,27 @@ server.use("/userpwd",userpwd);
 server.use("/search",search);
 //收藏音乐路由
 server.use("/islove",islove);
+//分享路由
+server.use("/share",share);
+//下载路由
+server.use("/load",load);
+//倾听量路由
+server.use("/listener",listener);
+//用户音乐表路由
+server.use("/musicself",musicself);
+//收歌进音乐表
+server.use("/joinself",joinself);
+//上传朋友圈路由
+server.use("/uploading",uploading);
+//加载朋友路由
+server.use("/partyload",partyload);
+//用户移除功能路由
+server.use("/deletefocus",deletefocus);
+//朋友圈点赞路由
+server.use("/goods",goods);
+//加好友路由
+server.use("/focus",focus);
+
 
 
 
