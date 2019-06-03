@@ -12,12 +12,16 @@ router.post("/",(req,res)=>{
   if(!upwd){
     res.send(JSON.stringify({code:-1,msg:"upwd required"}));
     return;
-  }; 
-  var sql=`INSERT INTO bm_user(phone,upwd) values (?,md5(?)) `;
+  };
+  var sql="SELECT uid FROM bm_user WHERE phone=? AND upwd=md5(?)";
   query(sql,[phone,upwd])
   .then(result=>{
-    if(result.affectedRows>0){
-      res.send(JSON.stringify({code:1,msg:"register suc"}));
+    if(result.length>0){
+      req.session.uid=result[0].uid;
+      //console.log(result);
+      res.send(JSON.stringify({code:1,msg:"登陆成功"}))
+    }else{
+      res.send(JSON.stringify({code:-1,msg:"登录失败"}))
     }
   })
   .catch(error=>console.log(error))
