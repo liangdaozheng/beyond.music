@@ -15,6 +15,11 @@ var signout=require("./routes/signout");
 var userdel=require("./routes/userdel");
 var usermsg=require("./routes/usermsg");
 var userupd=require("./routes/userupd");
+var userava=require("./routes/userava");
+var uservip=require("./routes/uservip");
+var userpwd=require("./routes/userpwd");
+var search=require("./routes/search");
+var islove=require("./routes/islove");
 
 
 
@@ -63,5 +68,16 @@ server.use("/userdel",userdel);
 server.use("/usermsg",usermsg);
 //用户修改路由
 server.use("/userupd",userupd);
+//用户上传头像路由
+server.use("/userava",userava);
+//用户充值会员路由
+server.use("/uservip",uservip);
+//用户修改密码路由
+server.use("/userpwd",userpwd);
+//搜索功能路由
+server.use("/search",search);
+//收藏音乐路由
+server.use("/islove",islove);
+
 
 
