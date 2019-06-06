@@ -5,6 +5,7 @@
 </template>
 
 <style>
+
 *{
    margin:0;padding:0;
    box-sizing: border-box;
@@ -13,7 +14,6 @@ ul{
    list-style: none;
 }
    .app-container{
-     padding-bottom:50px;
      overflow-x:hidden;
    }
 

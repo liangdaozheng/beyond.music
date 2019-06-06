@@ -1,5 +1,6 @@
 <template>
-    <div class="video-box" style=" background:url(/static/img/videobox/6.jpg) no-repeat;background-size:300% 300%; overflow:hidden;background-position: center;" >
+    <div class="video-box" width="100%" >
+        <img src="/static/img/videobox/6.jpg" class="bg-bulr">
         <div class="video-body">
             <video src="@/assets/mp4/brave heart -tri.Version- - 宮崎歩.flac"></video>  
             <!-- 背景 -->
@@ -15,6 +16,10 @@
                     </div>
                     <div class="turn-play"></div>
                 </div>
+                <div>
+                    <p>brave heart</p>
+                    <p> 宮崎歩</p>
+                </div>
                 <div class="play-bar">
                     <span>00:00</span>
                     <div class="play-line">
@@ -29,6 +34,7 @@
                     <span class="iconfont">&#xe63a;</span>
                     <span class="iconfont">&#xe82a;</span>
                     <span class="iconfont">&#xe61d;</span>
+                    <span class="iconfont">&#xe65e;</span>
                 </div>
             </div>
         </div>   
@@ -58,13 +64,19 @@ export default {
 .video-body{
     display: flex;
     justify-content: center;
-    min-height: 100%;
+    min-height: 105%;
     background: rgba(0,0,0,0.6);
-    
+    z-index: 3;
     
 }
  video{
     display: none;
+}
+img.bg-bulr{
+    position: absolute;
+    width:100%; min-height:100%;
+    z-index: -1;
+    filter:blur(15px);
 }
 .top-title{
     display: flex;
@@ -73,6 +85,7 @@ export default {
     padding:5px 3px;
     color:antiquewhite;
     position: absolute;
+    margin:0 auto;
 }
 .top-title>span{
     font-size: 26px;
@@ -81,6 +94,7 @@ export default {
     width:100%;
     text-align: center;
     min-height: 100%;
+    min-height:664px;
 }
 .top-img{
     width:30%;
@@ -122,6 +136,8 @@ export default {
     display: flex;
     justify-content:space-between;
     padding:0 1rem;
+    z-index: 10;
+    bottom:0;
 } 
 .play-line{
     width:70%;
