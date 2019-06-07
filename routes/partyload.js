@@ -4,7 +4,7 @@ var router=express.Router();
 var query=require("./query");
 router.get("/",(req,res)=>{
   var output={};
-  if(req.session.uid!==undefined){
+  if(req.query.uid!==undefined){
     var uid=req.query.uid;
     var sql="select * from bm_user_party where uid=?";
     query(sql,[uid])
@@ -20,6 +20,16 @@ router.get("/",(req,res)=>{
     })
     .then(result=>{
       output.friendup=result;
+      var uid=[];
+      for (var item of output.friend ){
+        uid.push(item.fuid);
+      };
+      uid=uid.toString();
+      var sql=`SELECT uid,fans FROM bm_user WHERE uid in (${uid})`;
+      return query(sql)
+    })
+    .then(result=>{
+        output.friendfans=result;
         var pno=1;
         var ps=4;
         var offset = (pno-1)*ps;
@@ -29,6 +39,16 @@ router.get("/",(req,res)=>{
     })
     .then(result=>{
       output.gol=result;
+      var uid=[];
+      for (var item of result ){
+        uid.push(item.uid);
+      };
+      uid=uid.toString();
+      var sql=`SELECT uid,fans FROM bm_user WHERE uid in (${uid})`;
+      return query(sql)
+    })
+    .then(result=>{
+      output.golfans=result;
       res.send(JSON.stringify({code:1,msg:"查询成功",data:output}))
     })
     .catch(error=>console.log(error))
@@ -42,6 +62,17 @@ router.get("/",(req,res)=>{
     query(sql,[offset,ps])
     .then(result=>{
       output.gol=result;
+      //console.log(result);
+      var uid=[];
+      for (var item of result ){
+        uid.push(item.uid);
+      };
+      uid=uid.toString();
+      var sql=`SELECT uid,fans FROM bm_user WHERE uid in (${uid})`;
+      return query(sql)
+    })
+    .then(result=>{
+      output.golfans=result;
       res.send(JSON.stringify({code:1,msg:"success",data:output}))
     })
     .catch(error=>console.log(error))
