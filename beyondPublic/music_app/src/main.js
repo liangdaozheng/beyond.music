@@ -6,6 +6,7 @@ import axios from './axios'
 // 引入mint-ui
 import MintUI from 'mint-ui'
 import './font/iconfont.css'
+import './font/myself/iconfont.css'
 
 import 'mint-ui/lib/style.css'
 Vue.use(MintUI);

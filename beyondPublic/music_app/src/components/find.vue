@@ -211,7 +211,7 @@ export default {
 
 <style scoped>
 .find-box{
-    backgroudn:#FCFCFD;
+    background:#FCFCFD;
 }
 .wrap-container{
     overflow: hidden;

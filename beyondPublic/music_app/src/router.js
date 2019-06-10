@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import find from './components/find.vue'
 import videobox from './components/video.vue'
 import friend from './components/friends.vue'
+import MySelf from './components/MySelf.vue'
 
 Vue.use(Router)
 
@@ -23,7 +24,8 @@ export default new Router({
             // 重定向
             path: '/',
             redirect: "/friend"
-        }
+        },
+        {path:"/MySelf",component:MySelf}
 
     ]
 })
