@@ -40,7 +40,7 @@
       <ul>
         <li>
           <div class="body_cell"> 
-            <span class="body_self iconfont">&#xe680;</span>
+            <span class="body_self iconfont">&#xe697;</span>
             <div class="body_name">本地音乐( <span>52</span> )</div>
           </div>
         </li>
@@ -127,7 +127,7 @@ export default {
 }
 .myself_body_music ul li{
   width:100%;
-  height:50px;
+  height:65px;
   padding-left: 25px;
   display: flex;
   justify-content: start;
@@ -152,10 +152,10 @@ export default {
   align-self: center;
 }
 .body_self{
-  font-size: 20px ;
+  font-size: 30px ;
 }
 .body_name{
-  font-size: 12px;
+  font-size: 16px;
   padding-left: 25px;
 }
 .body_name span{
