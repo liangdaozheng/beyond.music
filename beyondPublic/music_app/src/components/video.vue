@@ -6,8 +6,8 @@
             <!-- 背景 -->
             <div class="video-play">
                 <div class="top-title">
-                    <span class="iconfont">&#xe64e;</span>
-                    <span class="iconfont">&#xe684;</span>
+                    <span class="iconfont">&#xe61f;</span>
+                    <span class="iconfont">&#xe656;</span>
                 </div>
                 <img src="/static/img/videobox/2.jpg" class="top-img">
                 <div class="play-conainer">
@@ -28,35 +28,66 @@
                     <span>04:10</span>
                 </div>
                 <div class="contr-bar">
-                    <span class="iconfont">&#xe6a4;</span>
-                    <span class="iconfont">&#xe6a5;</span>
-                    <span class="iconfont">&#xe63c;</span>
-                    <span class="iconfont">&#xe63a;</span>
-                    <span class="iconfont">&#xe82a;</span>
-                    <span class="iconfont">&#xe61d;</span>
-                    <span class="iconfont">&#xe65e;</span>
+                    <audio :src="musicsrc" controls="controls"  ref="audio" @play="ready" @pause="pause" preload="auto" autoplay="autoplay" @loadeddata="loadd" @loadstart="loads" @error="err"></audio> 
+                    <span class="iconfont">&#xe68f;</span>
+                    <span class="iconfont">&#xe603;</span>
+                    <span class="iconfont" data-icon="&#xe6a4;">&#xe6a5;</span>
+                    <span class="iconfont">&#xe602;</span>
+                    <span class="iconfont" data-icon="&#xe747;">&#xe63b;</span>
+                <hr>
                 </div>
             </div>
-        </div>   
+        </div>  
     </div>
 </template>
 
 <script>
+
 export default {
     data() {
         return {
-
+            musicsrc:"../assets/mp4/djx.mp3",
         };
     },
     watch: {
-
+        
     },
     methods: {
+      ab(){
+          var image=document.getElementsByClassName("bg-bulr")[0];
+          console.log(image.height);
+      },
+     
+     ready(){
+        console.log("play click");
+        },
+     pause(){
+         console.log("pause click");
+        },
+    loadd(){
+        console.log("加载数据中")
+        },
+    loads(){
+        console.log("数据加载开始")
+        
+    },
+    err(){
+        console.log("error")
+        //this.$refs.audio.load();
+    }
+
 
     },
     components: {
 
     },
+    created(){
+        
+    },
+    mounted(){
+        this.ab();
+        
+    }
 };
 </script>
 
@@ -74,7 +105,7 @@ export default {
 }
 img.bg-bulr{
     position: absolute;
-    width:100%; min-height:100%;
+    width:100vw; height:100vh;
     z-index: -1;
     filter:blur(15px);
 }

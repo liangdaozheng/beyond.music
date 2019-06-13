@@ -6,7 +6,6 @@ import axios from './axios'
 // 引入mint-ui
 import MintUI from 'mint-ui'
 import './font/iconfont.css'
-import './font/myself/iconfont.css'
 
 import 'mint-ui/lib/style.css'
 Vue.use(MintUI);
@@ -20,6 +19,7 @@ import './lib/mui/css/mui.css'
 // 导入 MUI 的样式表，扩展图标样式，购物车图标
 // 还需要加载图标字体文件
 import './lib/mui/css/icons-extra.css'
+
 new Vue({
     router,
     render: h => h(App)

@@ -1,34 +1,31 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import find from './components/find.vue'
 import videobox from './components/video.vue'
 import friend from './components/friends.vue'
-import MySelf from './components/MySelf.vue'
-import UserSet from './components/UserSet.vue'
-import PlayList from './components/PlayList.vue'
+import find from './components/find.vue'
+import set from './components/UserSet.vue'
 
-Vue.use(Router)
+
+Vue.use(Router);
 
 export default new Router({
     routes: [{
-            path: '/friend',
-            component: friend
-        },
-        {
-            path: '/videobox',
+            path: '/find/videobox',
             component: videobox
         },
         {
-            path: '/find',
-            component: find
+            path: '/',
+            component: find,
+            name: "find",
         },
         {
-            // 重定向
-            path: '/',
-            redirect: "/friend"
-        },
-        {path:"/MySelf",component:MySelf},
-        {path:"/UserSet",component:UserSet},
-        {path:"/PlayList",component:PlayList},
+            path: '/friend',
+            component: friend,
+            name: "friend",
+        }, {
+            path: '/set',
+            component: set
+        }
+
     ]
 })

@@ -50,66 +50,66 @@
                  <div class="list-item">
                      <div class="item-img">
                          <div class="img-top">
-                             <span class="iconfont">&#xe61f;</span>
+                             <span class="iconfont">&#xe607;</span>
                              4.2万
                          </div>
                          <img src="@/assets/find/li1.jpg" alt="">
-                         <span class="play iconfont">&#xe802;</span>
+                         <span class="play iconfont">&#xe68f;</span>
                      </div>
                      <p>这首歌非常好听，请大家点开看看</p>
                  </div>
                  <div class="list-item">
                      <div class="item-img">
                          <div class="img-top">
-                             <span class="iconfont">&#xe61f;</span>
+                             <span class="iconfont">&#xe607;</span>
                              4.2万
                          </div>
                          <img src="@/assets/find/li2.jpg" alt="">
-                         <span class="play iconfont">&#xe802;</span>
+                         <span class="play iconfont">&#xe68f;</span>
                      </div>
                      <p>这首歌非常好听，请大家点开看看</p>
                  </div>
                  <div class="list-item">
                      <div class="item-img">
                          <div class="img-top">
-                             <span class="iconfont">&#xe61f;</span>
+                             <span class="iconfont">&#xe607;</span>
                              4.2万
                          </div>
                          <img src="@/assets/find/li3.jpg" alt="">
-                         <span class="play iconfont">&#xe802;</span>
+                         <span class="play iconfont">&#xe68f;</span>
                      </div>
                      <p>这首歌非常好听，请大家点开看看</p>
                  </div>
                  <div  class="list-item">
                      <div class="item-img">
                          <div class="img-top">
-                             <span class="iconfont">&#xe61f;</span>
+                             <span class="iconfont">&#xe607;</span>
                              4.2万
                          </div>
                          <img src="@/assets/find/li4.jpg" alt="">
-                         <span class="play iconfont">&#xe802;</span>
+                         <span class="play iconfont">&#xe68f;</span>
                      </div>
                      <p>这首歌非常好听，请大家点开看看</p>
                  </div>
                  <div  class="list-item">
                      <div class="item-img">
                          <div class="img-top">
-                             <span class="iconfont">&#xe61f;</span>
+                             <span class="iconfont">&#xe607;</span>
                              4.2万
                          </div>
                          <img src="@/assets/find/li5.jpg" alt="">
-                         <span class="play iconfont">&#xe802;</span>
+                         <span class="play iconfont">&#xe68f;</span>
                      </div>
                      <p>这首歌非常好听，请大家点开看看</p>
                  </div>
                  <div  class="list-item">
                      <div class="item-img">
                          <div class="img-top">
-                             <span class="iconfont">&#xe61f;</span>
+                             <span class="iconfont">&#xe607;</span>
                              4.2万
                          </div>
                          <img src="@/assets/find/li6.jpg" alt="">
-                         <span class="play iconfont">&#xe802;</span>
+                         <span class="play iconfont">&#xe68f;</span>
                      </div>
                      <p>这首歌非常好听，请大家点开看看</p>
                  </div>
@@ -121,7 +121,7 @@
                  <div class="list-item">
                      <div class="item-img">
                          <div class="img-top">
-                             <span class="iconfont">&#xe6a0;</span>
+                             <span class="iconfont">&#xe608;</span>
                              4.2万
                          </div>
                          <img src="@/assets/find/li1.jpg" alt="">
@@ -132,7 +132,7 @@
                  <div class="list-item">
                      <div class="item-img">
                          <div class="img-top">
-                             <span class="iconfont">&#xe6a0;</span>
+                             <span class="iconfont">&#xe608;</span>
                              4.2万
                          </div>
                          <img src="@/assets/find/li2.jpg" alt="">
@@ -143,7 +143,7 @@
                  <div class="list-item">
                      <div class="item-img">
                          <div class="img-top">
-                             <span class="iconfont">&#xe6a0;</span>
+                             <span class="iconfont">&#xe608;</span>
                              4.2万
                          </div>
                          <img src="@/assets/find/li3.jpg" alt="">
@@ -154,7 +154,7 @@
                  <div  class="list-item">
                      <div class="item-img">
                          <div class="img-top">
-                             <span class="iconfont">&#xe6a0;</span>
+                             <span class="iconfont">&#xe608;</span>
                              4.2万
                          </div>
                          <img src="@/assets/find/li4.jpg" alt="">
@@ -165,7 +165,7 @@
                  <div  class="list-item">
                      <div class="item-img">
                          <div class="img-top">
-                             <span class="iconfont">&#xe6a0;</span>
+                             <span class="iconfont">&#xe608;</span>
                              4.2万
                          </div>
                          <img src="@/assets/find/li5.jpg" alt="">
@@ -176,7 +176,7 @@
                  <div  class="list-item">
                      <div class="item-img">
                          <div class="img-top">
-                             <span class="iconfont">&#xe6a0;</span>
+                             <span class="iconfont">&#xe608;</span>
                              4.2万
                          </div>
                          <img src="@/assets/find/li6.jpg" alt="">
@@ -212,6 +212,7 @@ export default {
 <style scoped>
 .find-box{
     background:#FCFCFD;
+    width:100%;
 }
 .wrap-container{
     overflow: hidden;

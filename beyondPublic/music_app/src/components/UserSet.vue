@@ -147,11 +147,13 @@ export default {
 </script>
 <style scoped>
 .user_bg{
-  width:100%;
-  height:auto;
+  width:0%;
+  height:100%;
   background-color:rgba(0,0,0,0.3);
-  position: relative;
-  overflow: hidden;
+  position: absolute;
+  overflow: scroll;
+  transition: all .3s linear;
+
 }
 .user_main{
   width:80%;
@@ -223,6 +225,7 @@ export default {
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
+  background-color:#999;
 }
 .header_hot{
    font-size: 30px ;
@@ -290,11 +293,13 @@ export default {
   left:0;
   bottom: 0;
   z-index: 999;
-  width:80%;
+  width:0;
+  overflow: hidden;
   height:50px;
   border-top:1px solid #ddd;
   box-sizing: border-box;
   background-color:rgba(255,255,255,1);
+  transition: all .3s linear;
 
 }
 .foot_fixed ul {

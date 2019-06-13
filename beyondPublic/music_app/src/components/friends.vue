@@ -18,7 +18,7 @@
                 <p class="focus-num">#最新热歌</p>
                 <img src="@/assets/find/l1.jpg" alt="">
             </div>
-            <div><span></span></div>
+            <div><span class="iconfont">&#xe68f;</span>  6</div>
         </div>
     </div>
 </template>
@@ -43,11 +43,14 @@ export default {
 </script>
 
 <style scoped>
+.friend-box{
+    width: 100%;
+}
 .friend-item{
     position: relative;
     padding:1.5rem;
     border-bottom:1px solid #ddd;
-    box-shadow-bottom:0 0 3px black;
+    box-shadow:0 0 1px black;
 }
 .item-title{
     position: relative;
