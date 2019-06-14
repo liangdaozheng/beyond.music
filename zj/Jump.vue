@@ -36,7 +36,17 @@ export default {
             this.inp="";
         },
         next(){
-             this.$router.push("/login")
+            var pho=/^1([38][0-9]|4[579]|5[0-3,5-9]|6[6]|7[0135678]|9[89])\d{8}$/;
+            if(pho.test(this.inp)){
+                this.$router.push("/login")
+            }else{
+                this.$toast({
+                    message:"手机号格式错误",
+                    duration:1000,
+                    iconClass:"iconfont icon-cuowu"
+                })
+            }
+            
         }
     },
     directives:{
