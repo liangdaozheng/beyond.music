@@ -13,6 +13,9 @@
                 <img v-show="sc" src="img/sc.png" alt="">
             </span>
         </div>
+        <div class="inp2">
+             <input v-model="upwd" type="password" placeholder="请输入密码">
+        </div>
         <div @click="next" class="btn">
            <button :class="bt1" :disabled="ds"  class="bt">下一步</button>
         </div>
@@ -25,7 +28,8 @@ export default {
             sc:false,
             inp:"",
             bt1:{btn1:true},
-            ds:true
+            ds:true,
+            upwd:""
         }
     },
     methods:{
@@ -38,7 +42,16 @@ export default {
         next(){
             var pho=/^1([38][0-9]|4[579]|5[0-3,5-9]|6[6]|7[0135678]|9[89])\d{8}$/;
             if(pho.test(this.inp)){
-                this.$router.push("/login")
+                if(this.upwd!=""){
+                    this.$router.push("/login")
+                }else{
+                        this.$toast({
+                        message:"密码不能为空",
+                        duration:1000,
+                        iconClass:"iconfont icon-cuowu"
+                    })
+                }
+                
             }else{
                 this.$toast({
                     message:"手机号格式错误",
@@ -72,6 +85,11 @@ export default {
 }
 </script>
 <style scoped>
+    .inp2{
+        padding:5px 30px;
+        margin:10px 10px;
+        border-bottom: 1px solid #ddd;
+    }
     .btn1{
         opacity: 0.5;
     }
