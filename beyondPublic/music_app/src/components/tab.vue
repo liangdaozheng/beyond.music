@@ -1,9 +1,17 @@
 <template>
+<div style="height:100% position:relative">
     <div class="page-head">
             <span class="iconfont" @click="user">&#xe79c;</span>
             <span class="iconfont">&#xe607;不一样的音乐</span>
             <span class="iconfont">&#xe611;</span>
     </div>
+    <div class="bottom-bar">
+          <div class="bottom-bar-item"><router-link to="/find">发现</router-link></div>
+          <div class="bottom-bar-item"><router-link to="/friend">热门消息</router-link> </div>
+          <div class="bottom-bar-item"><router-link to="/my">我的</router-link> </div>
+      </div>
+    </div>
+    
 </template>
 <script>
 import set from './UserSet'
@@ -24,18 +32,18 @@ export default {
             user.style.width="100%";
             fix.style.width="80%";
             html.style.overflowY="hidden";
-
-            user.onclick=function(e){ 
-                index++;
-                console.log(index);
+            user.onclick=(e)=>{ 
+                this.index++;
+                console.log(this.index);
                 if(this.index>=2){
             var user=document.getElementsByClassName("user_bg")[0];
             var html=document.getElementsByTagName("html")[0];
             var fix=document.getElementsByClassName("foot_fixed")[0];
             user.style.width="0%";
             fix.style.width="0%";
-            html.style.overflowY="scoll"
-            e.stopPropagation();}
+            html.style.overflowY="auto"
+            this.index=0;
+            }
             };
             
         },

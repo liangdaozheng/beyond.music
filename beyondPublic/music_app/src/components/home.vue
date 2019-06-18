@@ -1,29 +1,36 @@
 <template>
- 
- <div class="app">
-   <router-view></router-view>
- </div>
-
+    <div class="home">
+    <titlebar></titlebar>
+    <setuser></setuser>
+    <transition :name="transitionName">
+     <router-view class="view app-view"></router-view>
+    </transition>
+     <!-- <div class="bottom-bar">
+          <div class="bottom-bar-item"><router-link to="/">发现</router-link></div>
+          <div class="bottom-bar-item"><router-link to="/friend">热门消息</router-link> </div>
+          <div class="bottom-bar-item"><router-link to="/my">我的</router-link> </div>
+      </div> -->
+    </div>
 </template>
 <script>
-import titlebar from './components/tab'
-import setuser from './components/UserSet'
+import titlebar from './tab'
+import setuser from './UserSet'
 export default {
-  name:"App",
+  name:"home",
     data() {
-         return {
-        //     transitionName:"fold-left"
+        return {
+            transitionName:"fold-left"
         };
     },
     watch: {
-        // '$route'(to,from){
-        //   console.log(from);
-        //   console.log(to);
-        //   const routerDeep=["/","/friend","/my"];
-        //   const toDepth = routerDeep.indexOf(to.path);
-        //   const fromDepth = routerDeep.indexOf(from.path);
-        //   this.transitionName = toDepth > fromDepth ? 'fold-left' : 'fold-right';}
-        
+        '$route'(to,from){
+          console.log(from);
+          console.log(to);
+          const routerDeep=["/find","/friend","/my"];
+          const toDepth = routerDeep.indexOf(to.path);
+          const fromDepth = routerDeep.indexOf(from.path);
+          this.transitionName = toDepth > fromDepth ? 'fold-left' : 'fold-right';
+        },
         
     },
     
@@ -52,6 +59,7 @@ html,body,.app{width:100%;overflow-x: hidden;}
 .view{
   margin:48px 0;
   height:100%;
+  overflow:hidden; 
 }
 .fold-left-enter-active {
     animation-name: fold-left-in;
@@ -69,13 +77,9 @@ html,body,.app{width:100%;overflow-x: hidden;}
       -webkit-transform: translate3d(100%, 0, 0);
       transform: translate3d(100%, 0, 0);
     }
-    99% {
+    100% {
       -webkit-transform: translate3d(0%, 0, 0);
       transform: translate3d(0%, 0, 0);
-    }
-    100% {
-      -webkit-transform: translate3d(100%, 0, 0);
-      transform: translate3d(100%, 0, 0);
     }
   }
   @keyframes fold-left-out {
@@ -84,15 +88,12 @@ html,body,.app{width:100%;overflow-x: hidden;}
       transform: translate3d(0%, 0, 0);
     }
   
-    99% {
+    100% {
       -webkit-transform: translate3d(-100%, 0, 0);
       transform: translate3d(-100%, 0, 0);
 
     }
-     100% {
-      -webkit-transform: translate3d(0%, 0, 0);
-      transform: translate3d(0%, 0, 0);
-    }
+     
   }
 
   .fold-right-enter-active {
@@ -102,22 +103,18 @@ html,body,.app{width:100%;overflow-x: hidden;}
   }
   .fold-right-leave-active {
     animation-name: fold-right-out;
-    animation-duration: .3s;
-    position: absolute !important;
+     animation-duration: .3s; 
+    /* position: absolute !important; */
   }
   @keyframes fold-right-in{
     0% {
       -webkit-transform: translate3d(-100%, 0, 0);
       transform: translate3d(-100%, 0, 0);
     }
-    99% {
+    100% {
      
       -webkit-transform: translate3d(0%, 0, 0);
       transform: translate3d(0%, 0, 0);
-    }
-     100% {
-      -webkit-transform: translate3d(-100%, 0, 0);
-      transform: translate3d(-100%, 0, 0);
     }
   }
   @keyframes fold-right-out  {
@@ -126,15 +123,11 @@ html,body,.app{width:100%;overflow-x: hidden;}
       transform: translate3d(0%, 0, 0);
     }
   
-    99% {
+    100%  {
      
       -webkit-transform: translate3d(100%, 0, 0);
       transform: translate3d(100%, 0, 0);
 
-    }
-    100% {
-      -webkit-transform: translate3d(0%, 0, 0);
-      transform: translate3d(0%, 0, 0);
     }
   }
   .bottom-bar{
@@ -157,4 +150,9 @@ html,body,.app{width:100%;overflow-x: hidden;}
   .user_bg{
     z-index: 1000;
   }
-</style>
+  .home{
+      height: 100%;
+      overflow-y: scroll;
+
+  }
+  </style>

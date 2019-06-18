@@ -2,11 +2,11 @@
     <div class="video-box" width="100%" >
         <img src="/static/img/videobox/6.jpg" class="bg-bulr">
         <div class="video-body">
-            <video src="@/assets/mp4/brave heart -tri.Version- - 宮崎歩.flac"></video>  
+           
             <!-- 背景 -->
             <div class="video-play">
                 <div class="top-title">
-                    <span class="iconfont">&#xe61f;</span>
+                    <span class="iconfont" @click="to">&#xe61f;</span>
                     <span class="iconfont">&#xe656;</span>
                 </div>
                 <img src="/static/img/videobox/2.jpg" class="top-img">
@@ -28,10 +28,10 @@
                     <span>04:10</span>
                 </div>
                 <div class="contr-bar">
-                    <audio :src="musicsrc" controls="controls"  ref="audio" @play="ready" @pause="pause" preload="auto" autoplay="autoplay" @loadeddata="loadd" @loadstart="loads" @error="err"></audio> 
+                    <audio src="/static/audio/djx.mp3"   ref="audio"></audio> 
                     <span class="iconfont">&#xe68f;</span>
                     <span class="iconfont">&#xe603;</span>
-                    <span class="iconfont" data-icon="&#xe6a4;">&#xe6a5;</span>
+                    <span class="iconfont" data-icon="&#xe6a5;" @click="playkey" ref="playpause">&#xe6a4;</span>
                     <span class="iconfont">&#xe602;</span>
                     <span class="iconfont" data-icon="&#xe747;">&#xe63b;</span>
                 <hr>
@@ -46,36 +46,28 @@
 export default {
     data() {
         return {
-            musicsrc:"../assets/mp4/djx.mp3",
+            musicsrc:"/static/audio/djx.mp3",
+            
         };
     },
     watch: {
         
     },
     methods: {
-      ab(){
-          var image=document.getElementsByClassName("bg-bulr")[0];
-          console.log(image.height);
-      },
      
-     ready(){
-        console.log("play click");
-        },
-     pause(){
-         console.log("pause click");
-        },
-    loadd(){
-        console.log("加载数据中")
-        },
-    loads(){
-        console.log("数据加载开始")
-        
-    },
-    err(){
-        console.log("error")
-        //this.$refs.audio.load();
-    }
-
+     playkey(e){
+         var ky=e.target.getAttribute("data-icon");
+        if(this.$refs.audio.paused){
+            this.$refs.audio.play();
+            this.$refs.playpause.innerHTML=ky;
+        }else{
+            this.$refs.audio.pause();
+            this.$refs.playpause.innerHTML="&#xe6a4;";
+        }
+     },
+      to(){
+          this.$router.push("/home")
+      }
 
     },
     components: {
@@ -85,8 +77,8 @@ export default {
         
     },
     mounted(){
-        this.ab();
-        
+      
+       
     }
 };
 </script>

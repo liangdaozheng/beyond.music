@@ -3,12 +3,12 @@
       <div class="header_nav">
         <header class="header">
             <div class="body_cell"> 
-                <span class="body_self iconfont">&#xe79b;</span>
-                <div class="body_name">本地音乐</div>
+                <span class="body_self iconfont" @click="goback">&#xe79b;</span>
+                <div class="body_name">音乐列表</div>
             </div>
         </header>
         <nav class="nav">
-            <ul>
+            <ul @click="activedli">
                 <li class="active">单曲</li>
                 <li>歌手</li>
                 <li>专辑</li>
@@ -49,6 +49,7 @@
 </template>
 
 <script>
+import { constants } from 'crypto';
 export default {
     data() {
         return {
@@ -58,8 +59,34 @@ export default {
     watch: {
 
     },
+    created(){
+        this.musicself()
+    },
     methods: {
-
+        goback(){
+            this.$router.push("/my")
+        },
+        activedli(e){
+            var lis=document.querySelectorAll('nav.nav ul li');         
+            //console.log(lis);
+            //console.log(e.target);
+            for(var li of lis){                              
+                if(e.target==li){
+                    for(var l of lis){ l.className=" ";}                  
+                    li.className="active";
+                }
+            }
+        },
+        musicself(){
+            //加载音乐列表数据
+            var url="musicself";
+            //var params={mid:1};           
+            this.axios.get(url)
+            .then(result=>{
+                console.log(result.data)
+            })
+            .catch(err=>console.log(err))
+        }
     },
     components: {
 
@@ -124,6 +151,7 @@ export default {
     display: flex;
     justify-content: space-between;
     border-bottom: 1px solid #ddd;
+    list-style: none;
 }
 .nav ul li{
     color:#000;

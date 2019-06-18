@@ -132,7 +132,7 @@
         </li>
         <li>
           <span class="foot_hot iconfont">&#xe64f;</span>
-          <div class="foot_name">退出</div>
+          <div class="foot_name" @click="turn">退出</div>
         </li>
       </ul>
     </div>
@@ -142,6 +142,11 @@
 export default {
   data(){
     return{}
+  },
+  methods:{
+    turn(){
+      this.$router.push('/');
+    }
   }
 }
 </script>
@@ -150,7 +155,7 @@ export default {
   width:0%;
   height:100%;
   background-color:rgba(0,0,0,0.3);
-  position: absolute;
+  position: fixed;
   overflow: scroll;
   transition: all .3s linear;
 

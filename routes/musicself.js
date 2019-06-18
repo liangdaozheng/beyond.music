@@ -8,6 +8,7 @@ router.get("/",(req,res)=>{
     selfmusic:[],
     musics:[]
   };
+  if(req.session.uid!==undefined){
   var sql="SELECT * FROM bm_user_self WHERE uid=?";
   query(sql,[uid])
   .then(result=>{
@@ -25,6 +26,9 @@ router.get("/",(req,res)=>{
     res.send(JSON.stringify({code:1,msg:"查询成功",data:output}))
   })
   .catch(error=>console.log(error))
+}else{
+  res.send(JSON.stringify({code:1,msg:"请登录"}))
+}
 });
 
 module.exports=router;

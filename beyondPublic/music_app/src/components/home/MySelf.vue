@@ -41,7 +41,7 @@
         <li>
           <div class="body_cell"> 
             <span class="body_self iconfont">&#xe697;</span>
-            <div class="body_name">本地音乐( <span>52</span> )</div>
+            <div class="body_name" @click="tolocal()">音乐列表( <span>52</span> )</div>
           </div>
         </li>
         <li>
@@ -78,8 +78,13 @@
 <script>
 export default {
   data(){
-    return{
+    return {
 
+    }
+  },
+  methods:{
+    tolocal(){
+       this.$router.push("/PlayList")
     }
   }
 }
@@ -91,15 +96,20 @@ export default {
   flex-direction: column;
   justify-content: flex-start;
 }
+.myself_header_hot{
+  width: 100%;
+  overflow-x: scroll;
+}
+.myself_header_hot::-webkit-scrollbar {
+    display: none;
+  }
 .myself_header_hot ul{
   display: flex;
-  justify-content: start;
+  justify-content: space-around;
   align-items: center;
-  width:700px;
+  width:200%;
   height:60px;
-  overflow: hidden;
   box-sizing: border-box;
-
 }
 .myself_header_hot ul li{
   padding:0 10px;
