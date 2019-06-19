@@ -31,6 +31,7 @@ var deletefocus=require("./routes/deletefocus");
 var goods=require("./routes/goods");
 var focus=require("./routes/focus");
 
+var getphone=require("./routes/getphone");
 
 
 
@@ -43,7 +44,7 @@ server.use(cors({
   credentials:true
 }));
 //监听端口8080
-server.listen(8080);
+server.listen(3000);
 //解析post/put的请求的数据（body） get/delete的用query
 server.use(bodyParser.urlencoded({
   extended:false
@@ -109,6 +110,7 @@ server.use("/goods",goods);
 //加好友路由
 server.use("/focus",focus);
 
-
+//获取查验用户的手机号是否注册路由
+server.use("/getphone",getphone);
 
 
