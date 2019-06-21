@@ -62,7 +62,7 @@ export default new Router({
             path: '/video',
             component: videobox
         },
-        {path:'/PlayList',component:PlayList}
+        {path:'/PlayList/:str',component:PlayList}
 
     ]
 });

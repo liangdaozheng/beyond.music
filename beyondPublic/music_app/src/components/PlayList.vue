@@ -4,7 +4,7 @@
         <header class="header">
             <div class="body_cell"> 
                 <span class="body_self iconfont" @click="goback">&#xe79b;</span>
-                <div class="body_name">音乐列表</div>
+                <div class="body_name">{{str}}</div>
             </div>
         </header>
         <nav class="nav">
@@ -21,23 +21,14 @@
           <div class="playkey">
            <div class="goall">
             <span class="play iconfont">&#xe6f6;</span>
-            <div class="all">播放全部 <span>(52)</span> </div>
+            <div class="all">播放全部 <span>({{selfmusic.length}})</span> </div>
            </div>
           </div>
-          <ul>
-              <li>
+          <ul>              
+              <li v-for=" (item,i) of musics" :key="i">
                 <div class="left">
-                    <span class="mname">夜空中最亮的星</span>
-                    <span class="aut">逃跑计划</span>
-                </div>
-                <div class="right">
-                    <span class="play iconfont">&#xe6f6;</span>
-                </div>
-              </li>
-              <li v-for="i of 50" :key="i">
-                <div class="left">
-                    <span class="mname">夜空中最亮的星</span>
-                    <span class="aut">逃跑计划</span>
+                    <span class="mname">{{item.mname}}</span>
+                    <span class="aut">{{item.author}}</span>
                 </div>
                 <div class="right">
                     <span class="play iconfont">&#xe6f6;</span>
@@ -49,17 +40,21 @@
 </template>
 
 <script>
-import { constants } from 'crypto';
+
 export default {
     data() {
         return {
-
+            str:"",
+            musics:{},
+            selfmusic:{}
         };
     },
     watch: {
 
     },
     created(){
+        this.str=this.$route.params.str;
+        //console.log(this.$route);
         this.musicself()
     },
     methods: {
@@ -83,7 +78,10 @@ export default {
             //var params={mid:1};           
             this.axios.get(url)
             .then(result=>{
-                console.log(result.data)
+                var {musics,selfmusic}=result.data.data;
+                this.musics=musics;
+                this.selfmusic=selfmusic;
+                console.log(this.musics)
             })
             .catch(err=>console.log(err))
         }
