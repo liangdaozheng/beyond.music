@@ -19,9 +19,9 @@
      
       <div class="list_main">
           <div class="playkey">
-           <div class="goall">
+           <div class="goall" @click="playall()">
             <span class="play iconfont">&#xe6f6;</span>
-            <div class="all">播放全部 <span>({{selfmusic.length}})</span> </div>
+            <div class="all" >播放全部 <span>({{selfmusic.length}})</span> </div>
            </div>
           </div>
           <ul>              
@@ -30,7 +30,7 @@
                     <span class="mname">{{item.mname}}</span>
                     <span class="aut">{{item.author}}</span>
                 </div>
-                <div class="right">
+                <div class="right" @click="playone(i)">
                     <span class="play iconfont">&#xe6f6;</span>
                 </div>
               </li>
@@ -42,18 +42,20 @@
 <script>
 
 export default {
+    name:"Playlist",
     data() {
         return {
             str:"",
             musics:{},
-            selfmusic:{}
+            selfmusic:{},
+            musicsrc:[]
         };
     },
     watch: {
 
     },
     created(){
-        this.str=this.$route.params.str;
+        if(this.$route.params.str!=undefined){this.str=this.$route.params.str;}
         //console.log(this.$route);
         this.musicself()
     },
@@ -81,9 +83,19 @@ export default {
                 var {musics,selfmusic}=result.data.data;
                 this.musics=musics;
                 this.selfmusic=selfmusic;
-                console.log(this.musics)
+                console.log(this.musics);
+                for (var item of musics){
+                    this.musicsrc.push(item.src)
+                }
             })
             .catch(err=>console.log(err))
+        },
+        playall(){
+            this.$router.push({name:"video",params:{str:this.str,musicsrc:this.musicsrc}})
+        },
+        playone(i){
+            //console.log(i)
+             this.$router.push({name:"video",params:{str:this.str,musicsrc:this.musicsrc,index:i}})
         }
     },
     components: {

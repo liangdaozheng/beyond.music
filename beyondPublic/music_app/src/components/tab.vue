@@ -34,7 +34,7 @@ export default {
             html.style.overflowY="hidden";
             user.onclick=(e)=>{ 
                 this.index++;
-                console.log(this.index);
+                //console.log(this.index);
                 if(this.index>=2){
             var user=document.getElementsByClassName("user_bg")[0];
             var html=document.getElementsByTagName("html")[0];

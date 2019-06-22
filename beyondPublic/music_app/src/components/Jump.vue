@@ -38,8 +38,11 @@ export default {
             var url="signin";
             var dataparams=`phone=${this.inp}&upwd=${this.upwd}`;
             this.axios.post(url,dataparams).then(result=>{
-                //console.log(result);
-                 this.$router.push("/home")
+                 //console.log(result);
+                 var uid=result.data.data.uid;   
+                 sessionStorage.setItem("uid",uid);
+                 this.$router.push("/home");
+                 //console.log(sessionStorage.getItem("uid"));
             })
         },
         back(){

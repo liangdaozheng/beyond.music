@@ -145,7 +145,36 @@ export default {
   },
   methods:{
     turn(){
-      this.$router.push('/');
+      //判断是否登录
+      var uid=sessionStorage.getItem("uid");
+      if(uid!==null){
+       this.$messagebox({
+          title:"退出",
+          message:"确定到退出登录吗?",
+          showConfirmButton:true,
+          showCancelButton:true,
+        })
+        .then(result=>{
+          if(result=='confirm'){
+            var url="signout";
+            this.axios.get(url)
+            .then(result=>{
+              //console.log(result);
+              sessionStorage.removeItem("uid");
+              this.$router.push('/');
+            })        
+          }else{
+            return;
+          }
+        })
+      }else{
+        var url="signout";
+        this.axios.get(url)
+          .then(result=>{
+            sessionStorage.removeItem("uid");
+            this.$router.push('/');
+        })    
+      }
     }
   }
 }

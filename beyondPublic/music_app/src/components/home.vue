@@ -24,8 +24,8 @@ export default {
     },
     watch: {
         '$route'(to,from){
-          console.log(from);
-          console.log(to);
+          //console.log(from);
+         // console.log(to);
           const routerDeep=["/find","/friend","/my"];
           const toDepth = routerDeep.indexOf(to.path);
           const fromDepth = routerDeep.indexOf(from.path);

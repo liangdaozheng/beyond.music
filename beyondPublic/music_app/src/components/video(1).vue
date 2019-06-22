@@ -42,7 +42,7 @@
 </template>
 
 <script>
-import { setInterval } from 'timers';
+
 
 export default {
     data() {
@@ -55,11 +55,12 @@ export default {
             isPlay:false,//是否正在播放
             multipleArray:[0.75,1,1.5,2],
             multipleIndex:1,
-            isPlayIcon:`&#xe6a5;`
+            isPlayIcon:`&#xe6a5;`,
+            str:'',
+            index:0
         };
     },
     watch: {
-        
     },
     methods: {
      playkey(e){
@@ -106,13 +107,20 @@ export default {
     
     //  跳转
       to(){
-          this.$router.push("/home")
+          this.$router.push({name:"PlayList",params:{str:this.str}})
       }
     },
     components: {
 
     },
     created(){
+        //获取传来的题头并保存
+        console.log(this.$route);
+        this.str=this.$route.params.str;
+        //获取音乐路径集合 和要加载歌的序号
+        this.index=this.$route.params.index;
+        //this.musicsrc=this.$route.params.musicsrc;
+        //console.log(this.musicsrc);
         let audio = new Audio();
       audio.src = this.musicsrc; //audio链接
      var timer=audio.addEventListener('loadedmetadata', () =>{
@@ -120,6 +128,7 @@ export default {
             this.getaudiotime();
         },200);
       });
+      
       // 进度条的拖拽
       audio.addEventListener('touchstart',function(ev){
                         clearInterval(timer)

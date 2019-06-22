@@ -76,10 +76,11 @@
   </div>
 </template>
 <script>
+
 export default {
   data(){
     return {
-      musics:{},
+      musics:[],
       snum:0,
       lnum:0,
       inum:0
@@ -88,9 +89,30 @@ export default {
   created(){
     this.loaddata()
   },
+  watch:{
+    
+  },
   methods:{
     tolocal(str){
-       this.$router.push("/PlayList/"+str)
+      var uid=sessionStorage.getItem("uid");
+      //console.log(uid);
+      if(uid!==null){
+         this.$router.push({name:"PlayList",params:{str}})
+      }else{
+        this.$messagebox({
+          title:"请登录",
+          message:"确定到登录页面吗?",
+          showConfirmButton:true,
+          showCancelButton:true,
+        })
+        .then(result=>{
+          if(result=='confirm'){
+            this.$router.push("/jump")
+          }else{
+            return;
+          }
+        })
+      }
     },
     loaddata(){
       //加载音乐列表数据
@@ -100,7 +122,7 @@ export default {
         .then(result=>{
           var data=result.data.data.selfmusic;
           this.musics=data;
-          console.log(data);
+          //console.log(data);
           var num1=0,num2=0,num3=0;
             for (var m of data){
               if(m.share==1){
@@ -120,7 +142,7 @@ export default {
         .catch(err=>console.log(err))
     }
   },
-
+  
 }
 
 </script>

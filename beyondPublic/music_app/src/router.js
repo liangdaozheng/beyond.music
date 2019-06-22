@@ -60,9 +60,10 @@ export default new Router({
         },
         {
             path: '/video',
+            name:"video",
             component: videobox
         },
-        {path:'/PlayList/:str',component:PlayList}
+        {path:'/PlayList',name:"PlayList",component:PlayList}
 
     ]
 });
