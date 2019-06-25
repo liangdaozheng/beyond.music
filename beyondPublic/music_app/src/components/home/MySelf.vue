@@ -97,7 +97,9 @@ export default {
       var uid=sessionStorage.getItem("uid");
       //console.log(uid);
       if(uid!==null){
-         this.$router.push({name:"PlayList",params:{str}})
+         this.$router.push("/PlayList");
+         sessionStorage.removeItem("liststr");
+         sessionStorage.setItem("liststr",str);
       }else{
         this.$messagebox({
           title:"请登录",

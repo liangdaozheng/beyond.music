@@ -55,7 +55,7 @@ export default {
 
     },
     created(){
-        if(this.$route.params.str!=undefined){this.str=this.$route.params.str;}
+        this.str=sessionStorage.getItem("liststr");
         //console.log(this.$route);
         this.musicself()
     },
@@ -95,7 +95,7 @@ export default {
         },
         playone(i){
             //console.log(i)
-             this.$router.push({name:"video",params:{str:this.str,musicsrc:this.musicsrc,index:i}})
+             this.$router.push({name:"video",params:{musicsrc:this.musicsrc,index:i}})
         }
     },
     components: {

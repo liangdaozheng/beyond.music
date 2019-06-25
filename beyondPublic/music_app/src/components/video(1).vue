@@ -28,7 +28,7 @@
                     <span>{{audioAllTime}}</span>
                 </div>
                 <div class="contr-bar">
-                    <audio ref="audio" :src='musicsrc'></audio> 
+                    <audio ref="audio" :src='srcloc+musicsrc[index]'></audio> 
                     <span class="iconfont">&#xe68f;</span>
                     <span class="iconfont">&#xe603;</span>
                     <span class="iconfont" @click="playkey" ref="playpause">&#xe6a5;</span>
@@ -47,8 +47,9 @@
 export default {
     data() {
         return {
-            musicsrc:"/static/audio/djx.mp3",
-            audioTime:0,//音频进度百分比
+            srcloc:"http://127.0.0.1:3000/",
+            musicsrc:[],
+            audioTime:0,//音频进度百分比"/static/audio/djx.mp3"
             audioCurrentTime:'00:00',//音频当前播放时间
             audioAllTime:'00:00',//音频总播放时间
             audioAllDuration:0,//音频总播放秒数
@@ -56,7 +57,6 @@ export default {
             multipleArray:[0.75,1,1.5,2],
             multipleIndex:1,
             isPlayIcon:`&#xe6a5;`,
-            str:'',
             index:0
         };
     },
@@ -83,7 +83,7 @@ export default {
         alltime=Math.floor(parseInt(audio.duration)/60);
         sec=Math.floor(parseInt(audio.duration)%60);
         if(sec<10){
-            sec=`0+${sec}`;
+            sec=`0${sec}`;
         }
         this.audioAllTime=`0${alltime}:${sec}`;
         // 获取当前时间
@@ -107,22 +107,20 @@ export default {
     
     //  跳转
       to(){
-          this.$router.push({name:"PlayList",params:{str:this.str}})
+          this.$router.push("/PlayList");
       }
     },
     components: {
 
     },
     created(){
-        //获取传来的题头并保存
-        console.log(this.$route);
-        this.str=this.$route.params.str;
         //获取音乐路径集合 和要加载歌的序号
         this.index=this.$route.params.index;
-        //this.musicsrc=this.$route.params.musicsrc;
-        //console.log(this.musicsrc);
+        console.log(this.$route.params);
+        this.musicsrc=this.$route.params.musicsrc;
+        console.log(this.musicsrc);
         let audio = new Audio();
-      audio.src = this.musicsrc; //audio链接
+      audio.src =this.srcloc+this.musicsrc[this.index]; //audio链接
      var timer=audio.addEventListener('loadedmetadata', () =>{
            var check=setInterval(()=>{
             this.getaudiotime();
@@ -171,6 +169,9 @@ export default {
     },
     mounted(){
           
+    },
+    destroyed(){
+       
     }
 };
 </script>
