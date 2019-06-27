@@ -1,16 +1,15 @@
 <template>
-    <div class="main bk">
-        <div class="imgs">
-            <img src="img/1.jpg" alt="">
-        </div>
-        <div class="anm">
-        </div>
-        <div class="anm sce">
+    <div class="bk">
+        <div class="anma">
+            <div class="imgs">
+                <img src="img/1.jpg" alt="">
+            </div>
+            <div class="anm"></div>
+            <div class="anm sce"></div>
         </div>
         <div class="bt">
-            <!-- <mt-button class="bt1" size="large"  @click="login">手机号登录</mt-button> -->
             <button class="bt1" @click="login">手机号登录</button>
-             <mt-button class="bt2" @click="taste" size="large">立即体验</mt-button>
+            <button class="bt2" @click="taste">立即体验</button>
         </div>
         <div class="ims">
             <div>
@@ -81,8 +80,8 @@ export default {
     .sel img{
         position:absolute;
         width: 10px;
-        top:4px;
-        left: -16px;
+        top:3px;
+        left: -15px;
     }
     #inp{
         width: 10px;
@@ -102,8 +101,11 @@ export default {
     }
     .inpt{
         position: absolute;
-        top:39rem;
-        left:23%;
+        text-align: center;
+        margin-left:-3px ;
+        width:64%;
+        top:90%;
+        left:18%;
     }
     .ims div{
         border:1px solid rgba(255, 255, 255, 0.2);
@@ -123,28 +125,41 @@ export default {
     .ims{
         position: absolute;
         left: 15%;
-        top:34rem;
+        top:78%;
         width: 70%;
         display: flex;
         justify-content: space-around;
     }
-    .main,.sel{
+    .sel{
         position: relative;
     }
     @keyframes change{
-        0%{width: 85px;height: 85px;opacity: 0.5;z-index: 1;}
-        100%{width:400px;height: 400px; top:1%;left:0%;opacity: 0;}
+        0%{ 
+            opacity: 0.5;z-index: 1;
+        }
+        100%{
+            width:300px;height: 300px;
+            top:calc(0% - 150px);left:calc(50% - 150px);opacity: 0;
+        }
+    }
+    .anma{
+        position: absolute;
+        top: 30%;
+        left:  calc(50% - 40px);
+        height: 80px;
+        width: 80px;
+        z-index: 0;
     }
     .anm{
         position: absolute;
         border:1px solid #fff;
-        top:23.5%;
-        left: calc(50% - 50px);
-        width:1px;height: 1px;
+        top:calc(0% - 39px);
+        left: calc(50% - 39px);
+        width:78px;height: 78px;
         border-radius: 50%;
         background-color:#c20c0c;
-        animation: change 5s linear infinite;
-        z-index: -1;
+        animation: change 5s linear infinite; 
+        /* z-index: -1;  */
     }
     .sce{
         animation-delay: 1.5s;
@@ -152,11 +167,11 @@ export default {
     .imgs{
         position: absolute;
         width:80px;height:80px;
-        left: calc(50% - 46px);
+        left: calc(50% - 40px);
         overflow: hidden;
         border-radius: 50%;
-        top:24%;
-        margin:0 auto;
+        top:-51%;
+        z-index: 10;
     }
     .imgs img{
         position: absolute;
@@ -172,29 +187,30 @@ export default {
         width: 100%                                             
     }
     .bt{
-        position: relative;
+        /* position: relative; */
         display: flex;
-        flex-direction:column;
-        align-items: center;
+        flex-direction: column;
+        top:50%;
+        left:50%;
     }
     .bt1{
-        
         outline: 0;
         font-weight: 600;
     }
     .bt1,.bt2{ 
         border:1px solid #fff;    
-        width: 70%;
+        width: 60%;
         position: absolute;
-        top:27rem;
+        top:60%;
+        left: 20%;
         border-radius:50px!important; 
         font-size: 14px!important;
         height: 35px!important;
         color:#c20c0c!important;    
     }
     .bt2{
+        top:68%;
         background-color: #c20c0c!important;
-        top:30rem!important;
         color:#fff!important;
     }
 </style>

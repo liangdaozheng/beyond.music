@@ -91,7 +91,7 @@ export default {
             .catch(err=>console.log(err))
         },
         playall(){
-            this.$router.push({name:"video",params:{str:this.str,musicsrc:this.musicsrc}})
+            this.$router.push({name:"video",params:{musicsrc:this.musicsrc,index:0}})
         },
         playone(i){
             //console.log(i)

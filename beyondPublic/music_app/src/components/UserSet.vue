@@ -334,7 +334,7 @@ export default {
   box-sizing: border-box;
   background-color:rgba(255,255,255,1);
   transition: all .3s linear;
-
+  margin-bottom: 48px;
 }
 .foot_fixed ul {
   height: 100%;

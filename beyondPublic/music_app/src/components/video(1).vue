@@ -42,6 +42,7 @@
 </template>
 
 <script>
+import { clearInterval } from 'timers';
 
 
 export default {
@@ -120,9 +121,10 @@ export default {
         this.musicsrc=this.$route.params.musicsrc;
         console.log(this.musicsrc);
         let audio = new Audio();
+        
       audio.src =this.srcloc+this.musicsrc[this.index]; //audio链接
      var timer=audio.addEventListener('loadedmetadata', () =>{
-           var check=setInterval(()=>{
+         var  check=setInterval(()=>{
             this.getaudiotime();
         },200);
       });
